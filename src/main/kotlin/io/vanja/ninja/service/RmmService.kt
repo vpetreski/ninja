@@ -110,7 +110,7 @@ class RmmService(
         return Cost(deviceRepository.deviceCost(id))
     }
 
-    fun calculateTotalCost(): Cost? {
+    fun calculateTotalCost(): Cost {
         return Cost(deviceRepository.totalCost())
     }
 }

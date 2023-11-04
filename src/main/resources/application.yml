@@ -1,7 +1,6 @@
 info:
   app:
     name: Ninja
-    # url: http://localhost
 logging:
   level:
     io.vanja: DEBUG

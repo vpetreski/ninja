@@ -35,6 +35,6 @@ class IntegrationTest(
         rmmService.addServiceToDevice(device1.id!!, ServiceDeviceRequest(service2.id!!))
         rmmService.addServiceToDevice(device2.id!!, ServiceDeviceRequest(service2.id!!))
 
-        assertThat(rmmService.calculateTotalCost()!!.cost).isEqualTo(service1.price!! + service2.price!! * 2)
+        assertThat(rmmService.calculateTotalCost().cost).isEqualTo(service1.price!! + service2.price!! * 2)
     }
 }
