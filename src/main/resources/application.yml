@@ -1,0 +1,23 @@
+info:
+  app:
+    name: Ninja
+    # url: http://localhost
+logging:
+  level:
+    io.vanja: DEBUG
+server:
+  port: 80
+spring:
+  main:
+    allow-circular-references: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ninja?stringtype=unspecified
+    username: ninja
+    password: ninja
+  flyway:
+    baseline-on-migrate: true
+  jpa:
+    open-in-view: false
+    hibernate:
+      naming:
+        physical-strategy: io.vanja.ninja.config.PrefixSnakeCaseNamingStrategy
