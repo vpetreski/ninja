@@ -20,3 +20,13 @@ spring:
     hibernate:
       naming:
         physical-strategy: io.vanja.ninja.config.PrefixSnakeCaseNamingStrategy
+  data:
+    redis:
+      host: localhost
+  cache:
+    type: redis
+springdoc:
+  api-docs:
+    path: /openapi
+  swagger-ui:
+    path: /doc

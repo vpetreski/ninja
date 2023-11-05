@@ -67,6 +67,5 @@ Run tests with `just test`.
 
 ## Improvements
 
-- Replace in-memory caching with Redis
 - More tests
 - OpenAPI / Swagger docs
