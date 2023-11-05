@@ -1,5 +1,6 @@
 package io.vanja.ninja.controller
 
+import io.swagger.v3.oas.annotations.tags.Tag
 import io.vanja.ninja.data.ServiceCreateRequest
 import io.vanja.ninja.domain.Service
 import io.vanja.ninja.service.RmmService
@@ -10,6 +11,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder
 
 @RestController
 @RequestMapping("/services")
+@Tag(name = "services", description = "The Services Resource")
 class ServiceRestController(
     private val rmmService: RmmService,
 ) {
