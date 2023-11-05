@@ -67,5 +67,5 @@ Run tests with `just test`.
 
 ## Improvements
 
+- Improve OpenAPI / Swagger docs
 - More tests
-- OpenAPI / Swagger docs

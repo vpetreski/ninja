@@ -1,5 +1,13 @@
 package io.vanja.ninja.controller
 
+import io.swagger.v3.oas.annotations.Operation
+import io.swagger.v3.oas.annotations.headers.Header
+import io.swagger.v3.oas.annotations.media.ArraySchema
+import io.swagger.v3.oas.annotations.media.Content
+import io.swagger.v3.oas.annotations.media.Schema
+import io.swagger.v3.oas.annotations.responses.ApiResponse
+import io.swagger.v3.oas.annotations.responses.ApiResponses
+import io.swagger.v3.oas.annotations.tags.Tag
 import io.vanja.ninja.data.Cost
 import io.vanja.ninja.data.DeviceCreateRequest
 import io.vanja.ninja.data.ServiceDeviceRequest
@@ -12,12 +20,25 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder
 
 @RestController
 @RequestMapping("/devices")
+@Tag(name = "devices", description = "The Devices Resource")
 class DeviceRestController(
     private val rmmService: RmmService,
 ) {
     private val log = LoggerFactory.getLogger(javaClass)
 
     @PostMapping("/")
+    @Operation(summary = "Create device")
+    @ApiResponses(
+        value = [
+            ApiResponse(
+                responseCode = "201",
+                description = "Device created",
+                content = [Content(mediaType = "application/json", schema = Schema(implementation = Void::class))],
+                headers = [Header(name = "Location", description = "Created device endpoint")]
+            ),
+            ApiResponse(responseCode = "409", description = "Device already exist")
+        ]
+    )
     fun createDevice(@RequestBody deviceCreateRequest: DeviceCreateRequest): ResponseEntity<Void> {
         return ResponseEntity.created(
             ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")

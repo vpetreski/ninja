@@ -27,7 +27,7 @@ repositories {
 val testcontainersVersion = "1.19.1"
 val springMockkVersion = "4.0.2"
 val kotlinxDateTimeVersion = "0.4.1"
-val openApiUi = "1.7.0"
+val openApiUi = "2.2.0"
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-actuator")
@@ -36,7 +36,8 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("org.springframework.boot:spring-boot-starter-data-redis")
     implementation("org.springframework.boot:spring-boot-starter-cache")
-    implementation("org.springdoc:springdoc-openapi-ui:$openApiUi")
+    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:$openApiUi")
+    implementation("org.springdoc:springdoc-openapi-starter-common:$openApiUi")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.flywaydb:flyway-core")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
