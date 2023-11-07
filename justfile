@@ -11,5 +11,6 @@ run:
   docker rmi -f ninja/backend:latest
   docker-compose -p ninja-backend up
 
+# Run tests
 test:
   ./gradlew clean test

@@ -1,5 +1,7 @@
 # Ninja 🥷
 
+Task instruction is [here](INSTRUCTIONS.md).
+
 ## Requirements
 
 - JDK 17

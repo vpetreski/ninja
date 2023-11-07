@@ -27,7 +27,6 @@ class RmmService(
     private val cacheManager: CacheManager
 ) {
     private val log = LoggerFactory.getLogger(javaClass)
-    private val deviceCostCache = "device-cost"
 
     @Transactional
     fun createService(@Valid serviceCreateRequest: ServiceCreateRequest): io.vanja.ninja.domain.Service {
@@ -102,7 +101,7 @@ class RmmService(
     }
 
     private fun evictDeviceCostCache(deviceId: Long) {
-        cacheManager.getCache(deviceCostCache)?.evict(deviceId);
+        cacheManager.getCache("device-cost")?.evict(deviceId);
     }
 
     @Cacheable("device-cost")
