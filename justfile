@@ -1,6 +1,6 @@
 #!/usr/bin/env just --justfile
 
-# Bring DB for local development
+# Bring resources for local development
 local:
   docker-compose down
   docker-compose -p ninja-backend up ninja-db ninja-cache
