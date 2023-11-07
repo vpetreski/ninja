@@ -2,7 +2,6 @@ package io.vanja.ninja
 
 import io.vanja.ninja.data.DeviceCreateRequest
 import io.vanja.ninja.data.ServiceCreateRequest
-import io.vanja.ninja.data.ServiceDeviceRequest
 import io.vanja.ninja.exception.AlreadyExistsException
 import io.vanja.ninja.service.RmmService
 import org.assertj.core.api.Assertions
@@ -31,9 +30,9 @@ class IntegrationTest(
 
         val device2 = rmmService.createDevice(DeviceCreateRequest("Developer", type = "Mac"))
 
-        rmmService.addServiceToDevice(device1.id!!, ServiceDeviceRequest(service1.id!!))
-        rmmService.addServiceToDevice(device1.id!!, ServiceDeviceRequest(service2.id!!))
-        rmmService.addServiceToDevice(device2.id!!, ServiceDeviceRequest(service2.id!!))
+        rmmService.addServiceToDevice(device1.id!!, service1.id!!)
+        rmmService.addServiceToDevice(device1.id!!, service2.id!!)
+        rmmService.addServiceToDevice(device2.id!!, service2.id!!)
 
         assertThat(rmmService.calculateTotalCost().cost).isEqualTo(service1.price!! + service2.price!! * 2)
     }

@@ -81,9 +81,9 @@ class RmmService(
     }
 
     @Transactional
-    fun addServiceToDevice(deviceId: Long, serviceDeviceRequest: ServiceDeviceRequest) {
+    fun addServiceToDevice(deviceId: Long, serviceId: Long) {
         try {
-            deviceRepository.addServiceToDevice(deviceId, serviceDeviceRequest.serviceId)
+            deviceRepository.addServiceToDevice(deviceId, serviceId)
             evictDeviceCostCache(deviceId)
         } catch (e: DataIntegrityViolationException) {
             if (e.message!!.contains("is not present in table")) {

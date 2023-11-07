@@ -2,7 +2,6 @@ package io.vanja.ninja.controller
 
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.headers.Header
-import io.swagger.v3.oas.annotations.media.ArraySchema
 import io.swagger.v3.oas.annotations.media.Content
 import io.swagger.v3.oas.annotations.media.Schema
 import io.swagger.v3.oas.annotations.responses.ApiResponse
@@ -62,7 +61,7 @@ class DeviceRestController(
         @PathVariable("id") id: Long,
         @RequestBody serviceDeviceRequest: ServiceDeviceRequest
     ): ResponseEntity<Void> {
-        rmmService.addServiceToDevice(id, serviceDeviceRequest)
+        rmmService.addServiceToDevice(id, serviceDeviceRequest.serviceId)
         return ResponseEntity.ok().build()
     }
 
