@@ -3,7 +3,6 @@ package io.vanja.ninja.service
 import io.vanja.ninja.data.Cost
 import io.vanja.ninja.data.DeviceCreateRequest
 import io.vanja.ninja.data.ServiceCreateRequest
-import io.vanja.ninja.data.ServiceDeviceRequest
 import io.vanja.ninja.domain.Device
 import io.vanja.ninja.exception.AlreadyExistsException
 import io.vanja.ninja.exception.DoesNotExistException
@@ -95,8 +94,8 @@ class RmmService(
     }
 
     @Transactional
-    fun removeServiceFromDevice(deviceId: Long, serviceDeviceRequest: ServiceDeviceRequest) {
-        deviceRepository.removeServiceFromDevice(deviceId, serviceDeviceRequest.serviceId)
+    fun removeServiceFromDevice(deviceId: Long, serviceId: Long) {
+        deviceRepository.removeServiceFromDevice(deviceId, serviceId)
         evictDeviceCostCache(deviceId)
     }
 

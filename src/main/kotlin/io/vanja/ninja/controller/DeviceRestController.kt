@@ -70,7 +70,7 @@ class DeviceRestController(
         @PathVariable("id") id: Long,
         @RequestBody serviceDeviceRequest: ServiceDeviceRequest
     ): ResponseEntity<Void> {
-        rmmService.removeServiceFromDevice(id, serviceDeviceRequest)
+        rmmService.removeServiceFromDevice(id, serviceDeviceRequest.serviceId)
         return ResponseEntity.ok().build()
     }
 
